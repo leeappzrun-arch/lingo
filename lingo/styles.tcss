@@ -1,0 +1,176 @@
+Screen {
+    background: $surface;
+    padding: 0 0 1 2;
+}
+
+#logo, #logo-small {
+    width: 100%;
+    color: $accent;
+    text-style: bold;
+    text-align: center;
+    padding: 1 0;
+}
+
+#tagline {
+    width: 100%;
+    color: $text-muted;
+    text-style: italic;
+    text-align: center;
+    padding-bottom: 1;
+}
+
+#hint {
+    width: 100%;
+    color: $text-muted;
+    text-align: center;
+    padding: 1 0;
+}
+
+#title, #status, #keyboard {
+    text-align: center;
+}
+
+#title {
+    color: $accent;
+    text-style: bold;
+    padding: 1 0;
+}
+
+#menu-box {
+    width: 32;
+    padding: 1 0;
+    background: transparent;
+}
+
+#menu {
+    height: auto;
+    background: transparent;
+}
+
+ListView > ListItem {
+    padding: 1 2;
+    margin: 0 0 1 0;
+    background: $panel;
+    color: $text;
+    content-align: center middle;
+}
+
+ListView > ListItem > Label {
+    width: 100%;
+    text-align: center;
+}
+
+ListView > ListItem.--highlight {
+    background: $accent;
+    color: $background;
+    text-style: bold;
+}
+
+#help-box {
+    width: 60;
+    border: round $accent;
+    padding: 1 2;
+}
+
+#play-area {
+    width: auto;
+    height: auto;
+}
+
+#grid {
+    width: auto;
+    height: auto;
+    padding: 1 0;
+}
+
+#keyboard-pane {
+    width: auto;
+    height: auto;
+    margin: 4 0 0 4;
+}
+
+#keyboard {
+    width: auto;
+    height: auto;
+}
+
+.row {
+    height: 3;
+    width: auto;
+}
+
+.cell {
+    width: 5;
+    height: 3;
+    content-align: center middle;
+    border: tall $panel;
+    text-style: bold;
+    margin: 0 1;
+}
+
+.cell.empty {
+    background: $surface;
+    color: $text-muted;
+    border: tall $panel-lighten-1;
+}
+
+.cell.pending {
+    background: $surface;
+    color: $text;
+    border: tall $accent;
+}
+
+.cell.hit {
+    background: green;
+    color: black;
+    border: tall green;
+}
+
+.cell.present {
+    background: yellow;
+    color: black;
+    border: tall yellow;
+}
+
+.cell.miss {
+    background: grey 30%;
+    color: $text;
+    border: tall grey;
+}
+
+#status {
+    height: 1;
+    padding: 1 0;
+}
+
+NamePromptScreen {
+    align: center middle;
+    background: $background 70%;
+}
+
+#win-box {
+    width: 50;
+    height: auto;
+    padding: 1 2;
+    border: round $accent;
+    background: $surface;
+}
+
+#win-title, #win-stats, #win-hint {
+    width: 100%;
+    text-align: center;
+    padding: 0 0 1 0;
+}
+
+#win-input, #name-input {
+    width: 24;
+    margin: 0 0;
+    border: tall $accent;
+}
+
+#leaderboard-table {
+    width: auto;
+    height: auto;
+    padding: 1 2;
+    color: $text;
+}
