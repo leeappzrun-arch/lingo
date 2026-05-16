@@ -16,3 +16,10 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["lingo"]
+
+[tool.hatch.build]
+include = [
+    "lingo/**/*.py",
+    "lingo/styles.tcss",
+    "lingo/data/*.txt",
+]

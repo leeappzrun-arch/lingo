@@ -13,7 +13,7 @@ from textual.widgets import Static
 from lingo.scores import calculate_score
 from lingo.screens.name_prompt import NamePromptScreen
 from lingo.screens.splash import LOGO
-from lingo.words import ANSWERS
+from lingo.words import ANSWERS, is_valid_word
 
 WORD_LEN = 5
 MAX_GUESSES = 6
@@ -161,6 +161,9 @@ class GameScreen(Screen):
         if len(self.current) != WORD_LEN:
             self._set_status("need 5 letters", error=True)
             return
+        if not is_valid_word(self.current):
+            self._set_status(f"'{self.current.upper()}' is not a word", error=True)
+            return
         row = len(self.guesses)
         states = score_guess(self.current, self.answer)
         for i, (ch, st) in enumerate(zip(self.current, states)):
@@ -249,13 +252,13 @@ class GameScreen(Screen):
                 st = self.key_states.get(ch)
                 label = f" {ch.upper()} "
                 if st == HIT:
-                    parts.append(f"[black on green]{label}[/]")
+                    parts.append(f"[black on #6aaa64]{label}[/]")
                 elif st == PRESENT:
-                    parts.append(f"[black on yellow]{label}[/]")
+                    parts.append(f"[black on #c9b458]{label}[/]")
                 elif st == MISS:
-                    parts.append(f"[dim grey42 on grey11]{label}[/]")
+                    parts.append(f"[#1a1a1a on #b0b0b0]{label}[/]")
                 else:
-                    parts.append(f"[white on grey50]{label}[/]")
+                    parts.append(f"[#e0e0e0 on #3a3a3c]{label}[/]")
             out_lines.append(" ".join(parts))
         # indent middle and bottom rows slightly for a keyboard-y shape
         return "\n".join(
